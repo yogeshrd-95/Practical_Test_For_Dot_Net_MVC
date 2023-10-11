@@ -1,0 +1,121 @@
+﻿@model Practical_Test_For_Dot_Net_MVC.Models.Flight
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Create</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Add Flight</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.FlightRef, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.EditorFor(model => model.FlightRef, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.FlightRef, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DepDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.EditorFor(model => model.DepDate, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.DepDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DepTime, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.EditorFor(model => model.DepTime, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.DepTime, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ArrDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.EditorFor(model => model.ArrDate, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.ArrDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ArrTime, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.EditorFor(model => model.ArrTime, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.ArrTime, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FlightType, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.DropDownListFor(model => model.FlightType, new List<SelectListItem> {
+                new SelectListItem { Text = "Direct", Value = "Direct" },
+                new SelectListItem { Text = "Indirect", Value = "Indirect" }
+                }, "Select Flight Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FlightType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FlightSupplier, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.EditorFor(model => model.FlightSupplier, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.FlightSupplier, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Currency, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.DropDownListFor(model => model.Currency, new List<SelectListItem> {
+                  new SelectListItem{Text = "GBP", Value="GBP"},
+                  new SelectListItem{Text = "INR", Value="INR"},
+                  new SelectListItem{Text = "USA", Value="USA"}
+                  }, "Select Currency", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Currency, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FlightPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-sm-3">
+            @Html.EditorFor(model => model.FlightPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FlightPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-outline-primary" />
+        </div>
+    </div>
+</div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

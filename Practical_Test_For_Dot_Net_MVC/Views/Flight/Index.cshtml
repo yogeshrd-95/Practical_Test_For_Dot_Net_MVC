@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Practical_Test_For_Dot_Net_MVC.Models.Flight>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Flight List</h2>
+
+<p>
+    @Html.ActionLink("Add Flight", "Create")
+</p>
+<div class="table-responsive">
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightRef)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightType)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightSupplier)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Currency)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightPrice)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightRef)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepTime)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightType)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightSupplier)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Currency)
+                    </td>
+                    <td>
+                        @(item.FlightPrice)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.FlightId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.FlightId }, new { onclick = "return confirm('Are you sure to delete this Flight?');" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
